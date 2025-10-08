@@ -1,4 +1,5 @@
 import heapq
+from typing import List
 
 class Solution:
     def topKFrequent(self, nums: List[int], k: int) -> List[int]:
@@ -11,11 +12,13 @@ class Solution:
             freq[c].append(n)
     
         res = []
-        for i in range(len(freq) - 1, 0, -1):
+        i = 0
+        while i < len(nums):
             for n in freq[i]:
                 res.append(n)
                 if len(res) == k:
                     return res
+                i += 1
         
         
 

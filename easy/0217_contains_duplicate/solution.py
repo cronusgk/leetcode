@@ -2,16 +2,10 @@ from typing import List
 
 class Solution:
     def hasDuplicate(self, nums: List[int]) -> bool:
-        count = {}
+        count = set()
         for num in nums:
-            if num not in count:
-                count[num] = 1
-            else:
-                count[num] += 1
-        
-        for value in count.values():
-            if value > 1:
+            if num in count:
                 return True
-
+            count.add(num)
         return False
          
