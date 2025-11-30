@@ -12,10 +12,8 @@ class Solution:
             prefixProd[i] = prefixProd[i - 1] * nums[i - 1]
 
         suffixProd[-1] = 1
-        i = len(nums) - 2
         for n in range(len(nums) - 2, -1, -1):
-            suffixProd[i] = nums[n + 1] * suffixProd[n + 1]
-            i -= 1
+            suffixProd[n] = nums[n + 1] * suffixProd[n + 1]
 
         productArr[0] = suffixProd[0]
         for i in range(1, len(nums)):
